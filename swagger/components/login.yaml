@@ -1,0 +1,27 @@
+post:
+  summary: Logged in
+  tags:
+    - general
+  consumes:
+    - application/json
+  parameters:
+    - name: username, password
+      in: body
+      description:
+      required: true
+      schema:
+        type: object
+        properties:
+          username:
+            type: string
+          password:
+            type: string
+  responses:
+    '200':
+      description: OK
+      schema:
+        $ref: '../openapi.yaml#/definitions/loginSuccess'
+    '401':
+      description: Unauthorized
+      schema:
+        $ref: '../openapi.yaml#/definitions/invalidResponse'

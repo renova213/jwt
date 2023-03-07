@@ -1,0 +1,13 @@
+get:
+  summary: Facility
+  tags:
+    - general
+  responses:
+    '200':
+      description: OK
+      schema:
+        $ref: '../openapi.yaml#/definitions/loginSuccess'
+    '401':
+      description: Unauthorized
+      schema:
+        $ref: '../openapi.yaml#/definitions/invalidResponse'

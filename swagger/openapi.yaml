@@ -1,0 +1,66 @@
+swagger: '2.0'
+info:
+  title: Vaccine Booking
+  description: Vaccine Booking documentation using Swagger and YAML
+  version: 1.0.0
+tags:
+  - name: citizen
+    description: Operations related to users
+  - name: admin
+    description: Operations related to admin
+  - name: general
+    description: Operations related to all users
+paths:
+  /auth/refresh-token:
+    $ref: components/refresh_token.yaml
+  /auth/login:
+    $ref: components/login.yaml
+  /auth/register:
+    $ref: components/register.yaml
+  /facility:
+    $ref: components/facility.yaml
+definitions:
+  invalidResponse:
+    type: object
+    properties:
+      message:
+        type: string
+  loginSuccess:
+    type: object
+    properties:
+      data:
+        type: object
+        properties:
+          username:
+            type: string
+          password:
+            type: string
+          accessToken:
+            type: string
+          refreshToken:
+            type: string
+      message:
+        type: string
+      accessToken:
+        type: string
+      refreshToken:
+        type: string
+  registerSuccess:
+    properties:
+      data:
+        type: object
+        properties:
+          username:
+            type: string
+      message:
+        type: string
+      createdAt:
+        type: string
+      updatedAt:
+        type: string
+  refreshTokenSuccess:
+    properties:
+      message:
+        type: string
+      accessToken:
+        type: string

@@ -1,0 +1,25 @@
+post:
+  summary: Refresh access token
+  tags:
+    - general
+  consumes:
+    - application/json
+  parameters:
+    - name: Refresh token
+      in: body
+      description:
+      required: true
+      schema:
+        type: object
+        properties:
+          refreshToken:
+            type: string
+  responses:
+    201:
+      description: Created
+      schema:
+        $ref: '../openapi.yaml#/definitions/loginSuccess'
+    401:
+      description: Unauthorized
+      schema:
+        $ref: '../openapi.yaml#/definitions/invalidResponse'

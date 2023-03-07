@@ -1,0 +1,31 @@
+post:
+  summary: Register
+  tags:
+    - general
+  consumes:
+    - application/json
+  parameters:
+    - name: username, password
+      in: body
+      description:
+      required: true
+      schema:
+        type: object
+        properties:
+          username:
+            type: string
+          password:
+            type: string
+          confirmationPassword:
+            type: string
+          role:
+            type: string
+  responses:
+    201:
+      description: Created
+      schema:
+        $ref: '../openapi.yaml#/definitions/registerSuccess'
+    400:
+      description: Bad Request
+      schema:
+        $ref: '../openapi.yaml#/definitions/invalidResponse'
